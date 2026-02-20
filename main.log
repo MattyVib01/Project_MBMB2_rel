@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.14)  20 FEB 2026 11:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.14)  20 FEB 2026 12:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -469,174 +469,174 @@ Package hyperref Info: Link coloring ON on input line 25.
 \openout4 = `main.out'.
 
 \c@lstlisting=\count309
-<salomoneFB.png, id=180, 301.125pt x 200.75pt>
+<salomoneFB.png, id=217, 301.125pt x 200.75pt>
 File: salomoneFB.png Graphic file (type png)
 <use salomoneFB.png>
 Package pdftex.def Info: salomoneFB.png  used on input line 45.
 (pdftex.def)             Requested size: 221.78923pt x 147.8665pt.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./salomoneFB.png>] (./main.toc)
-\tf@toc=\write5
-\openout5 = `main.toc'.
-
-
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./salomoneFB.png>] (./main.toc
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.55 \newpage
-              [1]
-<UseCaseDiagram.jpg, id=239, 1254.93843pt x 1710.39pt>
+l.54 ...entazione delle query}{24}{subsection.6.4}
+                                                  % [1])
+\tf@toc=\write5
+\openout5 = `main.toc'.
+
+ [2] [3{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+<UseCaseDiagram.jpg, id=294, 1254.93843pt x 1710.39pt>
 File: UseCaseDiagram.jpg Graphic file (type jpg)
 <use UseCaseDiagram.jpg>
-Package pdftex.def Info: UseCaseDiagram.jpg  used on input line 77.
+Package pdftex.def Info: UseCaseDiagram.jpg  used on input line 138.
 (pdftex.def)             Requested size: 487.93903pt x 665.03986pt.
 
-Overfull \hbox (44.36055pt too wide) in paragraph at lines 77--78
+Overfull \hbox (44.36055pt too wide) in paragraph at lines 138--139
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 7.82532pt on input line 80.
+LaTeX Warning: Float too large for page by 7.82532pt on input line 141.
 
-[2{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [3 <./UseCaseDiagram.jpg>] [4]
-Overfull \hbox (18.01205pt too wide) in paragraph at lines 133--134
+[4] [5 <./UseCaseDiagram.jpg>] [6]
+Overfull \hbox (18.01205pt too wide) in paragraph at lines 196--197
 []|[]| 
  []
 
 
-Overfull \hbox (4.73416pt too wide) in paragraph at lines 137--139
+Overfull \hbox (4.73416pt too wide) in paragraph at lines 200--202
 []|[]| 
  []
 
 
-Overfull \hbox (19.27583pt too wide) in paragraph at lines 180--181
+Overfull \hbox (19.27583pt too wide) in paragraph at lines 243--244
 []|[]| 
  []
 
 
-Overfull \hbox (19.68816pt too wide) in paragraph at lines 194--207
+Overfull \hbox (19.68816pt too wide) in paragraph at lines 257--270
 [][] 
  []
 
-[5]
-Overfull \hbox (33.34549pt too wide) in paragraph at lines 223--224
+[7]
+Overfull \hbox (33.34549pt too wide) in paragraph at lines 286--287
 []|[]| 
  []
 
-[6]
-<mockup1.png, id=270, 464.33475pt x 351.714pt>
+[8]
+<mockup1.png, id=325, 464.33475pt x 351.714pt>
 File: mockup1.png Graphic file (type png)
 <use mockup1.png>
-Package pdftex.def Info: mockup1.png  used on input line 240.
+Package pdftex.def Info: mockup1.png  used on input line 303.
 (pdftex.def)             Requested size: 310.50357pt x 235.20172pt.
-<mockup2.png, id=272, 463.13025pt x 349.305pt>
+<mockup2.png, id=327, 463.13025pt x 349.305pt>
 File: mockup2.png Graphic file (type png)
 <use mockup2.png>
-Package pdftex.def Info: mockup2.png  used on input line 247.
+Package pdftex.def Info: mockup2.png  used on input line 310.
 (pdftex.def)             Requested size: 310.50357pt x 234.1877pt.
- [7 <./mockup1.png> <./mockup2.png>]
-<mockup3.png, id=281, 464.937pt x 349.90726pt>
+ [9 <./mockup1.png> <./mockup2.png>]
+<mockup3.png, id=336, 464.937pt x 349.90726pt>
 File: mockup3.png Graphic file (type png)
 <use mockup3.png>
-Package pdftex.def Info: mockup3.png  used on input line 255.
+Package pdftex.def Info: mockup3.png  used on input line 318.
 (pdftex.def)             Requested size: 310.50357pt x 233.69449pt.
-<mockup4.png, id=282, 465.53925pt x 350.5095pt>
+<mockup4.png, id=337, 465.53925pt x 350.5095pt>
 File: mockup4.png Graphic file (type png)
 <use mockup4.png>
-Package pdftex.def Info: mockup4.png  used on input line 263.
+Package pdftex.def Info: mockup4.png  used on input line 326.
 (pdftex.def)             Requested size: 310.50357pt x 233.78117pt.
- [8 <./mockup3.png> <./mockup4.png>]
-<UML.png, id=291, 765.6103pt x 732.48656pt>
+ [10 <./mockup3.png> <./mockup4.png>]
+<UML.png, id=346, 765.6103pt x 732.48656pt>
 File: UML.png Graphic file (type png)
 <use UML.png>
-Package pdftex.def Info: UML.png  used on input line 274.
+Package pdftex.def Info: UML.png  used on input line 337.
 (pdftex.def)             Requested size: 443.57848pt x 424.38425pt.
-<objectpattern.jpg, id=292, 1003.75pt x 501.875pt>
+<objectpattern.jpg, id=347, 1003.75pt x 501.875pt>
 File: objectpattern.jpg Graphic file (type jpg)
 <use objectpattern.jpg>
-Package pdftex.def Info: objectpattern.jpg  used on input line 292.
+Package pdftex.def Info: objectpattern.jpg  used on input line 355.
 (pdftex.def)             Requested size: 443.57848pt x 221.79057pt.
- [9 <./UML.png>] [10 <./objectpattern.jpg (PNG copy)>]
-<ER.png, id=304, 559.08875pt x 447.6725pt>
+ [11 <./UML.png>] [12 <./objectpattern.jpg (PNG copy)>]
+<ER.png, id=360, 559.08875pt x 447.6725pt>
 File: ER.png Graphic file (type png)
 <use ER.png>
-Package pdftex.def Info: ER.png  used on input line 312.
+Package pdftex.def Info: ER.png  used on input line 375.
 (pdftex.def)             Requested size: 443.57848pt x 355.19435pt.
- [11 <./ER.png>]
-<implclass.png, id=311, 210.18526pt x 510.708pt>
+ [13 <./ER.png>]
+<implclass.png, id=366, 210.18526pt x 510.708pt>
 File: implclass.png Graphic file (type png)
 <use implclass.png>
-Package pdftex.def Info: implclass.png  used on input line 327.
+Package pdftex.def Info: implclass.png  used on input line 390.
 (pdftex.def)             Requested size: 133.07489pt x 323.36084pt.
- [12 <./implclass.png>] [13]
-<class1.png, id=323, 699.8145pt x 239.6955pt>
+ [14 <./implclass.png>] [15]
+<class1.png, id=377, 699.8145pt x 239.6955pt>
 File: class1.png Graphic file (type png)
 <use class1.png>
-Package pdftex.def Info: class1.png  used on input line 391.
+Package pdftex.def Info: class1.png  used on input line 454.
 (pdftex.def)             Requested size: 443.57848pt x 151.93063pt.
- [14 <./class1.png>] [15]
-<ECOLOGMAIL.png, id=334, 630.85687pt x 264.23718pt>
+ [16 <./class1.png>] [17]
+<ECOLOGMAIL.png, id=388, 630.85687pt x 264.23718pt>
 File: ECOLOGMAIL.png Graphic file (type png)
 <use ECOLOGMAIL.png>
-Package pdftex.def Info: ECOLOGMAIL.png  used on input line 476.
+Package pdftex.def Info: ECOLOGMAIL.png  used on input line 539.
 (pdftex.def)             Requested size: 443.57848pt x 185.79533pt.
-<mockup5.png, id=335, 464.937pt x 351.714pt>
+<mockup5.png, id=389, 464.937pt x 351.714pt>
 File: mockup5.png Graphic file (type png)
 <use mockup5.png>
-Package pdftex.def Info: mockup5.png  used on input line 492.
+Package pdftex.def Info: mockup5.png  used on input line 555.
 (pdftex.def)             Requested size: 310.50357pt x 234.90118pt.
- [16] [17 <./ECOLOGMAIL.png> <./mockup5.png>]
-<tests.png, id=348, 218.61674pt x 298.11375pt>
+ [18] [19 <./ECOLOGMAIL.png> <./mockup5.png>]
+<tests.png, id=403, 218.61674pt x 298.11375pt>
 File: tests.png Graphic file (type png)
 <use tests.png>
-Package pdftex.def Info: tests.png  used on input line 511.
+Package pdftex.def Info: tests.png  used on input line 574.
 (pdftex.def)             Requested size: 221.78923pt x 302.44806pt.
-<test1.png, id=349, 651.03226pt x 133.6995pt>
+<test1.png, id=404, 651.03226pt x 133.6995pt>
 File: test1.png Graphic file (type png)
 <use test1.png>
-Package pdftex.def Info: test1.png  used on input line 520.
+Package pdftex.def Info: test1.png  used on input line 583.
 (pdftex.def)             Requested size: 443.57848pt x 91.09805pt.
-<test2.png, id=350, 659.46375pt x 119.84775pt>
+<test2.png, id=405, 659.46375pt x 119.84775pt>
 File: test2.png Graphic file (type png)
 <use test2.png>
-Package pdftex.def Info: test2.png  used on input line 530.
+Package pdftex.def Info: test2.png  used on input line 593.
 (pdftex.def)             Requested size: 443.57848pt x 80.61575pt.
- [18 <./tests.png> <./test1.png>]
-<test3.png, id=360, 486.618pt x 121.6545pt>
+ [20 <./tests.png> <./test1.png>]
+<test3.png, id=414, 486.618pt x 121.6545pt>
 File: test3.png Graphic file (type png)
 <use test3.png>
-Package pdftex.def Info: test3.png  used on input line 541.
+Package pdftex.def Info: test3.png  used on input line 604.
 (pdftex.def)             Requested size: 443.57848pt x 110.8988pt.
- [19 <./test2.png> <./test3.png>]
-<db1.png, id=369, 604.05675pt x 446.8695pt>
+ [21 <./test2.png> <./test3.png>]
+<db1.png, id=423, 604.05675pt x 446.8695pt>
 File: db1.png Graphic file (type png)
 <use db1.png>
-Package pdftex.def Info: db1.png  used on input line 558.
+Package pdftex.def Info: db1.png  used on input line 621.
 (pdftex.def)             Requested size: 443.57848pt x 328.16216pt.
-<db3.png, id=370, 481.19775pt x 54.2025pt>
+<db3.png, id=424, 481.19775pt x 54.2025pt>
 File: db3.png Graphic file (type png)
 <use db3.png>
-Package pdftex.def Info: db3.png  used on input line 569.
+Package pdftex.def Info: db3.png  used on input line 632.
 (pdftex.def)             Requested size: 354.86412pt x 39.97275pt.
- [20 <./db1.png>]
-<db2.png, id=377, 337.26pt x 387.849pt>
+ [22 <./db1.png>]
+<db2.png, id=432, 337.26pt x 387.849pt>
 File: db2.png Graphic file (type png)
 <use db2.png>
-Package pdftex.def Info: db2.png  used on input line 586.
+Package pdftex.def Info: db2.png  used on input line 649.
 (pdftex.def)             Requested size: 221.78923pt x 255.06381pt.
- [21 <./db3.png> <./db2.png>]
-<db4.png, id=386, 614.89725pt x 248.127pt>
+ [23 <./db3.png> <./db2.png>]
+<db4.png, id=441, 614.89725pt x 248.127pt>
 File: db4.png Graphic file (type png)
 <use db4.png>
-Package pdftex.def Info: db4.png  used on input line 598.
+Package pdftex.def Info: db4.png  used on input line 661.
 (pdftex.def)             Requested size: 443.57848pt x 178.9996pt.
-<db5.png, id=387, 195.73125pt x 308.95425pt>
+<db5.png, id=442, 195.73125pt x 308.95425pt>
 File: db5.png Graphic file (type png)
 <use db5.png>
-Package pdftex.def Info: db5.png  used on input line 609.
+Package pdftex.def Info: db5.png  used on input line 672.
 (pdftex.def)             Requested size: 110.8946pt x 175.04504pt.
- [22 <./db4.png> <./db5.png>] (./main.aux)
+ [24 <./db4.png> <./db5.png>] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -646,21 +646,21 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A3400AA7ADDEE1632FD6C3679AF5D5E3;6622.
+(rerunfilecheck)             Checksum: 322E9C298574246B8C8F7855756C10B4;8542.
  ) 
 Here is how much of TeX's memory you used:
- 12668 strings out of 474222
- 195978 string characters out of 5748733
- 1941975 words of memory out of 5000000
- 34691 multiletter control sequences out of 15000+600000
- 560982 words of font info for 46 fonts, out of 8000000 for 9000
+ 12691 strings out of 474222
+ 196351 string characters out of 5748733
+ 1943975 words of memory out of 5000000
+ 34702 multiletter control sequences out of 15000+600000
+ 561328 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,17n,79p,666b,533s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (23 pages, 1262848 bytes).
+ 75i,17n,79p,666b,623s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (25 pages, 1278922 bytes).
 PDF statistics:
- 443 PDF objects out of 1000 (max. 8388607)
- 364 compressed objects within 4 object streams
- 96 named destinations out of 1000 (max. 500000)
- 463 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 505 PDF objects out of 1000 (max. 8388607)
+ 421 compressed objects within 5 object streams
+ 107 named destinations out of 1000 (max. 500000)
+ 535 words of extra memory for PDF output out of 10000 (max. 10000000)
 

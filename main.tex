@@ -28,8 +28,8 @@
 \begin{titlepage}
    \begin{center}
        \vspace*{1cm}
-\huge{
-       \textbf{Progetto di una Web Application RESTful di un negozio di videogiochi "RiecoldddogGames"}
+\LARGE{
+       \textbf{Progetto di una Web Application RESTful di un negozio di videogiochi "RiecologGames"}
 
        \vspace{0.6cm}
         Software Architectures and Methodologies
@@ -44,7 +44,8 @@
      
        \includegraphics[width=0.5\textwidth]{salomoneFB.png}
             
-       Ingegneria Informatica
+       \vfill
+       Laurea Magistrale in Ingegneria Informatica
        \par\medskip
        Anno Accademico 2025/2026
             
@@ -58,19 +59,79 @@
 
 \section{Introduzione}
 Il nostro programma permette ad un qualunque negozio di prodotti videoludici di gestire l'intera filiera di vendita, tra cui: la gestione dei prodotti che arrivano in negozio, l'organizzazione dei dipendenti, la gestione dei clienti registrati e la possibilità di avere un amministratore. \par\medskip
-Il progetto è utile a singoli negozi che fanno parte di una catena, nel nostro caso la catena di appartenenza è di nostra invenzione e si chiama "EcologGames". 
+È presente una interfaccia web per ogni ruolo, con funzionalità diverse a seconda del ruolo stesso; ad esempio ogni cliente ha la propria area personale, dove può visualizzare i suoi dati e le sue prenotazioni, mentre un dipendente ha accesso a funzionalità di gestione del magazzino.
+Il progetto è utile a singoli negozi che fanno parte di una catena, nel nostro caso la catena di appartenenza è di nostra invenzione e si chiama "RiecologGames". 
 \begin{itemize}
-    \item Il cliente è colui che si reca nel punto vendita per compiere acquisti fisicamente. Per sfruttare tutti servizi del negozio (ad esempio prenotare un videogioco), è necessario che si registri con l'aiuto di un dipendente. In ogni caso, per la sola azione di compiere acquisti, non è necessaria alcuna registrazione. 
-    \item Il dipendente è colui che può svolgere semplici operazioni di gestione del magazzino interno, come ad esempio visionare prodotti disponibili o richiedere l'arrivo in lotto di prodotti. Inoltre, può occuparsi degli acquisti, delle prenotazioni e delle registrazioni dei clienti.
+    \item Il cliente è colui che compie acquisti, può farlo recandosi fisicamente in negozio oppure prenotare il prodotto sulla web app. Per sfruttare tutti servizi del negozio (ad esempio prenotare un videogioco), è necessario che si registri tramite una sezione dedicata. In ogni caso, per la sola azione di compiere acquisti fisicamente, non è necessaria alcuna registrazione. 
+    \item Il dipendente è colui che può svolgere semplici operazioni di gestione del magazzino interno, come ad esempio visionare prodotti disponibili o richiedere l'arrivo in lotto di prodotti. Inoltre, può occuparsi degli acquisti, delle prenotazioni, delle registrazioni dei clienti e dei resi.
     \item L'amministratore è colui che può svolgere operazioni più complesse di gestione del magazzino. E' il ruolo che più si avvicina all'azienda madre, in particolare può aggiungere videogiochi nuovi al catalogo complessivo dei punti vendita, può modificare dati dei dipendenti e visionare liste di dipendenti e clienti, con i relativi dati personali.
 \end{itemize}
 
 
 
-\section{Progettazione}
-\subsection{Use Case Diagrams}
-Il software ha 3 diversi attori: il cliente (Customer), il dipendente (Employee) e l'amministratore.
-Il cliente compie acquisti e prenotazioni per il suo conto, il dipendente gestisce il magazzino interno e permette ai clienti di fare acquisti, l'amministratore si occupa della gestione della catena e compie azioni che possono influenzare tutti i punti vendita. Lo schema dei casi d'uso, è realizzato secondo lo standard UML mediante StarUML \par\medskip
+
+\section{Analisi dei requisiti}
+In questa sezione, vengono elencati i requisiti del software, che in fase di progettazione e implementazione sono stati presi in considerazione per realizzare un software che soddisfacesse le esigenze di tutti e tre i ruoli. I requisiti sono stati divisi in requisiti funzionali e non funzionali, a seconda che riguardassero le funzionalità del software o le caratteristiche di qualità dello stesso.
+\subsection{Requisiti Funzionali}
+Di seguito sono elencati i requisiti funzionali del software, divisi per attore.
+\subsubsection{Requisiti funzionali del cliente}
+\begin{itemize}
+    \item \textit{FR1}: Il cliente deve poter registrarsi al software, inserendo nome, cognome, e-mail e password.
+    \item \textit{FR2}: Il cliente deve poter effettuare il login.
+    \item \textit{FR3}: Il cliente deve poter prenotare un prodotto, inserendo il nome del prodotto desiderato.
+    \item \textit{FR4}: Il cliente deve poter fare acquisti, recandosi fisicamente in negozio e pagando alla cassa. Se il cliente è registrato, riceve dei punti in base al prezzo del prodotto acquistato, che può utilizzare per ottenere sconti su acquisti futuri.
+    \item \textit{FR5}: Il cliente deve poter fare ricerche sui prodotti disponibili in negozio, inserendo il nome del prodotto desiderato. Il sistema mostra le informazioni legate al prodotto, come nome e prezzo.
+\end{itemize}
+\subsubsection{Requisiti funzionali del dipendente}
+\begin{itemize}
+    \item \textit{FR6}: Il dipendente deve poter effettuare il login.
+    \item \textit{FR7}: Il dipendente deve poter visualizzare la lista dei prodotti presenti in magazzino.
+    \item \textit{FR8}: Il dipendente deve poter registrare l'arrivo di un prodotto in una determinata quantità, inserendo l'ID del prodotto e la quantità arrivata.
+    \item \textit{FR9}: Il dipendente deve poter richiedere l'arrivo di un prodotto in una determinata quantità, inserendo l'ID o il nome del prodotto e la quantità desiderata.
+    \item \textit{FR10}: Il dipendente deve poter gestire i resi dei clienti, restituendo il prodotto al magazzino.
+\end{itemize}   
+\subsubsection{Requisiti funzionali dell'amministratore}
+\begin{itemize}
+    \item \textit{FR11}: L'amministratore deve poter effettuare il login.
+    \item \textit{FR12}: L'amministratore deve poter aggiungere un nuovo prodotto al catalogo.
+    \item \textit{FR13}: L'amministratore deve poter modificare i dati dei dipendenti.
+    \item \textit{FR14}: L'amministratore deve poter aggiungere un nuovo dipendente al database.
+    \item  \textit{FR15}: L'amministratore deve poter aggiungere un nuovo negozio al database.
+\end{itemize}
+\subsection{Requisiti non funzionali}
+Di seguito sono elencati i requisiti non funzionali del software, che riguardano le caratteristiche di qualità dello stesso.
+\subsubsection{Requisiti di scalabilità}
+\begin{itemize}
+    \item \textit{NFR1}: Il sistema deve essere sviluppato secondo un'architettura RESTful.
+    \item \textit{NFR2}: Il sistema deve consentire l’integrazione futura di moduli aggiuntivi senza modifiche sostanziali all’architettura esistente.
+\end{itemize}
+\subsubsection{Requisiti di sicurezza}
+\begin{itemize}
+    \item \textit{NFR3}: L’accesso al sistema deve essere protetto da autenticazione mediante credenziali.
+    \item \textit{NFR4}: I dati sensibili, come le password degli utenti, devono essere memorizzati mediante hashing.
+     \item \textit{NFR5}: Il sistema deve implementare un meccanismo di autorizzazione basato su ruoli (RBAC – Role-Based Access Control)
+    \item \textit{NFR6}: Il sistema deve implementare meccanismi di autorizzazione per garantire che solo gli utenti con i permessi appropriati possano accedere a determinate funzionalità.
+\end{itemize}
+\subsubsection{Requisiti di usabilità}
+\begin{itemize}
+    \item \textit{NFR7}: L’interfaccia utente deve essere intuitiva e facile da navigare.
+    \item \textit{NFR8}: Il sistema deve fornire feedback chiari e tempestivi agli utenti durante l’interazione.
+    \item \textit{NFR9}: Le operazioni principali devono essere eseguibili con un numero limitato di interazioni.
+\end{itemize}
+\subsubsection{Requisiti di manutenibilità}
+\begin{itemize}
+    \item \textit{NFR10}: Il codice deve essere organizzato in moduli con responsabilità ben definite. 
+    \item \textit{NFR11}: Il codice deve essere documentato in modo chiaro e completo.
+
+\end{itemize}
+
+
+
+    
+
+\section{Use Case Diagrams}
+Il software ha 3 diversi attori: il cliente (CUSTOMER), il dipendente (EMPLOYEE) e l'amministratore (ADMIN).
+Il cliente compie acquisti e prenotazioni per il suo conto, il dipendente gestisce il magazzino interno e permette ai clienti di fare acquisti, l'amministratore si occupa della gestione della catena e compie azioni che possono influenzare tutti i punti vendita. Lo schema dei casi d'uso, è realizzato secondo lo standard UML mediante StarUML. \par\medskip
 
 \begin{figure}
     \centering
@@ -78,6 +139,8 @@ Il cliente compie acquisti e prenotazioni per il suo conto, il dipendente gestis
     \caption{Use Case Diagram}
     \label{usecasediagram}
 \end{figure}
+
+
 
 
 

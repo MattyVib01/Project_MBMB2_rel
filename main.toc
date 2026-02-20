@@ -1,46 +1,55 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
-\contentsline {section}{\numberline {1}Introduzione}{2}{section.1}%
-\contentsline {section}{\numberline {2}Progettazione}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Use Case Diagrams}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Use Case Templates}{4}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Casi d'uso principali di un cliente}{4}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Casi d'uso principali di un dipendente}{5}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Casi d'uso principali dell'amministratore}{6}{subsubsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.3}Mockups}{7}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Reserve Product}{7}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Add To Storage}{7}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Request Product}{8}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}Create Detail}{8}{subsubsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.4}Class Diagram}{9}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}DAO Pattern}{10}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Entity Relationship Diagram}{11}{subsection.2.6}%
-\contentsline {section}{\numberline {3}Implementazioni delle classi}{12}{section.3}%
-\contentsline {subsection}{\numberline {3.1}domainModel}{12}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Detail}{12}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Product}{13}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Customer}{13}{subsubsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.4}Employee}{13}{subsubsection.3.1.4}%
-\contentsline {subsubsection}{\numberline {3.1.5}Cashdesk}{13}{subsubsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.2}businessLogic}{14}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}DetailController}{14}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}ProductController}{14}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}CustomerController}{15}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}EmployeeController}{15}{subsubsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.3}DAO}{15}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}JPA Repositories}{15}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}SoftwareDAO}{16}{subsubsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.4}mailManager}{16}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}EmailSenderService}{16}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}EmailController}{16}{subsubsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.5}GUI}{17}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Test (JUnit)}{18}{section.4}%
-\contentsline {subsection}{\numberline {4.1}getProductsByGameIdTest}{18}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}existDetailByNameTest}{19}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}addProductTest}{19}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Note sulla connessione al Database}{20}{section.5}%
-\contentsline {subsection}{\numberline {5.1}DBMS: MySQL}{20}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Inizializzazione della connessione}{20}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Mappatura delle classi Java nel Database}{21}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Implementazione delle query}{22}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Rete privata: Hamachi}{22}{subsection.5.5}%
+\contentsline {section}{\numberline {1}Introduzione}{3}{section.1}%
+\contentsline {section}{\numberline {2}Analisi dei requisiti}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Requisiti Funzionali}{3}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Requisiti funzionali del cliente}{3}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Requisiti funzionali del dipendente}{3}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Requisiti funzionali dell'amministratore}{4}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Requisiti non funzionali}{4}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Requisiti di scalabilità}{4}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Requisiti di sicurezza}{4}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Requisiti di usabilità}{4}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Requisiti di manutenibilità}{4}{subsubsection.2.2.4}%
+\contentsline {section}{\numberline {3}Use Case Diagrams}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Use Case Templates}{6}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Casi d'uso principali di un cliente}{6}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Casi d'uso principali di un dipendente}{7}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Casi d'uso principali dell'amministratore}{8}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}Mockups}{9}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Reserve Product}{9}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Add To Storage}{9}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Request Product}{10}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Create Detail}{10}{subsubsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.3}Class Diagram}{11}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}DAO Pattern}{12}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Entity Relationship Diagram}{13}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Implementazioni delle classi}{14}{section.4}%
+\contentsline {subsection}{\numberline {4.1}domainModel}{14}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Detail}{14}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Product}{15}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Customer}{15}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Employee}{15}{subsubsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.5}Cashdesk}{15}{subsubsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.2}businessLogic}{16}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}DetailController}{16}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}ProductController}{16}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}CustomerController}{17}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}EmployeeController}{17}{subsubsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.3}DAO}{17}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}JPA Repositories}{17}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}SoftwareDAO}{18}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}mailManager}{18}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}EmailSenderService}{18}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}EmailController}{18}{subsubsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.5}GUI}{19}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Test (JUnit)}{20}{section.5}%
+\contentsline {subsection}{\numberline {5.1}getProductsByGameIdTest}{20}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}existDetailByNameTest}{21}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}addProductTest}{21}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Note sulla connessione al Database}{22}{section.6}%
+\contentsline {subsection}{\numberline {6.1}DBMS: MySQL}{22}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Inizializzazione della connessione}{22}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Mappatura delle classi Java nel Database}{23}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Implementazione delle query}{24}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Rete privata: Hamachi}{24}{subsection.6.5}%
