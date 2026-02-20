@@ -1,0 +1,615 @@
+\documentclass{article}
+\usepackage{tabularx}
+
+\usepackage[italian]{babel}
+
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{listings}
+\usepackage{comment}
+
+
+\usepackage{fancyhdr}
+	\pagestyle{fancy}
+	\fancyhead{} % clear all header fields
+	\setlength{\headheight}{15pt}
+	\fancyhead[CO]{\leftmark}
+	\fancyhead[CE]{Nome Cognome}
+		\renewcommand{\sectionmark}[1]{\markboth{{#1}}{}}
+	\fancyfoot{}
+	\fancyfoot[CE,CO]{\thepage} % clear all footer fields
+
+\begin{document}
+
+
+\begin{titlepage}
+   \begin{center}
+       \vspace*{1cm}
+\huge{
+       \textbf{Progetto di una Web Application RESTful di un negozio di videogiochi "RiecologGames"}
+
+       \vspace{0.6cm}
+        Software Architectures and Methodologies
+            
+    
+       \vspace{1.5cm}
+
+       \textbf{Marco Bardazzi, Mattia Baroncelli}
+}
+            
+       \vspace{0.8cm}
+     
+       \includegraphics[width=0.5\textwidth]{salomoneFB.png}
+            
+       Ingegneria Informatica
+       \par\medskip
+       Anno Accademico 2025/2026
+            
+   \end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\flushleft
+
+\section{Introduzione}
+Il nostro programma permette ad un qualunque negozio di prodotti videoludici di gestire l'intera filiera di vendita, tra cui: la gestione dei prodotti che arrivano in negozio, l'organizzazione dei dipendenti, la gestione dei clienti registrati e la possibilità di avere un amministratore. \par\medskip
+Il progetto è utile a singoli negozi che fanno parte di una catena, nel nostro caso la catena di appartenenza è di nostra invenzione e si chiama "EcologGames". 
+\begin{itemize}
+    \item Il cliente è colui che si reca nel punto vendita per compiere acquisti fisicamente. Per sfruttare tutti servizi del negozio (ad esempio prenotare un videogioco), è necessario che si registri con l'aiuto di un dipendente. In ogni caso, per la sola azione di compiere acquisti, non è necessaria alcuna registrazione. 
+    \item Il dipendente è colui che può svolgere semplici operazioni di gestione del magazzino interno, come ad esempio visionare prodotti disponibili o richiedere l'arrivo in lotto di prodotti. Inoltre, può occuparsi degli acquisti, delle prenotazioni e delle registrazioni dei clienti.
+    \item L'amministratore è colui che può svolgere operazioni più complesse di gestione del magazzino. E' il ruolo che più si avvicina all'azienda madre, in particolare può aggiungere videogiochi nuovi al catalogo complessivo dei punti vendita, può modificare dati dei dipendenti e visionare liste di dipendenti e clienti, con i relativi dati personali.
+\end{itemize}
+
+
+
+\section{Progettazione}
+\subsection{Use Case Diagrams}
+Il software ha 3 diversi attori: il cliente (Customer), il dipendente (Employee) e l'amministratore.
+Il cliente compie acquisti e prenotazioni per il suo conto, il dipendente gestisce il magazzino interno e permette ai clienti di fare acquisti, l'amministratore si occupa della gestione della catena e compie azioni che possono influenzare tutti i punti vendita. Lo schema dei casi d'uso, è realizzato secondo lo standard UML mediante StarUML \par\medskip
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.1\textwidth]{UseCaseDiagram.jpg}
+    \caption{Use Case Diagram}
+    \label{usecasediagram}
+\end{figure}
+
+
+
+\newpage
+\subsection{Use Case Templates}
+Di seguito, illustriamo quelli che a nostro avviso sono i più importanti casi d'uso nel dettaglio.
+\subsubsection{Casi d'uso principali di un cliente}
+
+
+\begin{table}[!htbp]
+\begin{tabular}{l p{12cm}}
+
+\hline
+UC-1              & Reserve Product                                                                                                                                                                                                                                                                                                                                                   \\ \hline
+Descrizione       & Il cliente prenota un videogioco per suo conto, in attesa di una notifica di quando sarà arrivato in negozio.                                                                                                                                                                                                                                                     \\ \hline
+Livello           & User goal                                                                                                                                                                                                                                                                                                                                                         \\ \hline
+Attore principale & Customer                                                                                                                                                                                                                                                                                                                                                          \\ \hline
+Azioni            & \begin{tabular}[c]{@{}l@{}}1. Il cliente clicca "Prenota" dal menù a tendina della sua interfaccia.\\ 2. Il sistema mostra una casella di testo e un pulsante "PRENOTA".\\ 3. Il cliente inserisce il nome del videogioco nella casella.\\ 4. Il cliente preme il pulsante "PRENOTA"\\ 5. Il sistema notifica il cliente dell'avvenuta prenotazione.\end{tabular} \\ \hline
+Casi straordinari & 5. Nel caso il gioco non esista o la casella di testo sia vuota, il sistema notifica l'errore al cliente.                                                                                                                                                                                                                                                         \\ \hline
+\end{tabular}\caption{Prenotazione di un videogioco per un cliente - MOCKUP SOTTO}
+\end{table}
+
+\bigskip
+
+\begin{table}[!htbp]
+\begin{tabular}{l p{12cm}}
+
+\hline
+UC-2              & Search Product                                                                                                                                                                                                                                                                                                                                                   \\ \hline
+Descrizione       & Il cliente fa una ricerca inserendo il nome di un videogioco, il sistema mostra le informazioni legate ad esso.                                                                                                                                                                                                                                               \\ \hline
+Livello           & User goal                                                                                                                                                                                                                                                                                                                                                         \\ \hline
+Attore principale & Customer                                                                                                                                                                                                                                                                                                                                                          \\ \hline
+Azioni            & \begin{tabular}[c]{@{}l@{}}1. Il cliente clicca "Cerca" dal menù a tendina della sua interfaccia.\\ 2. Il sistema mostra una casella di testo e un pulsante "CERCA".\\ 3. Il cliente inserisce il nome del videogioco nella casella.\\ 4. Il cliente preme il pulsante "CERCA"\\ 5. Il sistema mostra nome, console e prezzo del gioco.\end{tabular} \\ \hline
+Casi straordinari & 5. Nel caso il gioco non esista o la casella di testo sia vuota, il sistema notifica l'errore al cliente.                                                                                                                                                                                                                                                         \\ \hline
+\end{tabular}\caption{Ricerca della disponibilità di un videogioco per un cliente}
+\end{table}
+
+\newpage
+\subsubsection{Casi d'uso principali di un dipendente}
+
+
+\begin{table}[!htbp] 
+\begin{tabular}{l p{12cm}} 
+
+\hline
+UC-3             & View Storage                                                                                                                                                                                                                                                                                                                                                \\ \hline
+Descrizione       & Il dipendente riceverà le informazioni su tutti i prodotti in magazzino, dopo l'inserimento di un PIN univoco.                                                                                                                                                                                                                                                   \\ \hline
+Livello           & User goal                                                                                                                                                                                                                                                                                                                                                         \\ \hline
+Attore principale &  Employee                                                                                                                                                                                                                                                                                                                                                        \\ \hline
+Azioni            &   
+
+
+       \begin{tabular}[c]{@{}l@{}}1. Il dipendente clicca "Magazzino" dal menù a tendina della sua interfaccia.\\ 2. Il sistema mostra una casella di testo, uno spazio per i risultati e un pulsante \\ "INVIA/AGGIORNA".\\ 3. Il dipendente inserisce il PIN nella casella.\\ 4. Il dipendente preme il pulsante "INVIA/AGGIORNA"\\ 5. Il sistema fornisce la lista di tutti i prodotti, comprensiva di ID, nome, console, \\ prezzo e quantità disponibile.\end{tabular}
+                              \\ \hline
+
+
+Casi straordinari & \begin{tabular}[c]{@{}l@{}} 5. Nel caso il PIN sia errato o la casella sia vuota, il sistema notifica l'errore al \\dipendente.  \\
+6. Nel caso in cui sia stato fatto un aggiornamento al database, il dipendente \\ preme il pulsante "INVIA/AGGIORNA" per aggiornare la lista \end{tabular}
+\\ \hline
+\end{tabular}\caption{Consultazione della lista dei prodotti in magazzino}
+
+\end{table}
+\bigskip
+\begin{table}[!htbp] 
+\begin{tabular}{l p{12cm}} 
+
+\hline
+UC-4          & Add Product to Storage                                                                                                                                                                                                                                                                                                                                               \\ \hline
+Descrizione       & Il dipendente registra l'arrivo di un videogioco in una determinata quantità.                                                                                                                                                                                                                                                   \\ \hline
+Livello           & User goal                                                                                                                                                                                                                                                                                                                                                         \\ \hline
+Attore principale &  Employee                                                                                                                                                                                                                                                                                                                                                        \\ \hline
+Azioni            &   
+
+
+      \begin{tabular}[c]{@{}l@{}}1. Il dipendente clicca "Aggiungi al magazzino" dal menù a tendina della sua \\interfaccia.\\ 2. Il sistema mostra due caselle di testo e un pulsante "AGGIUNGI AL\\ MAGAZZINO".\\ 3. Il dipendente inserisce l'ID del videogioco arrivato nella prima casella e la \\quantità nella seconda.\\ 4. Il dipendente preme il pulsante "AGGIUNGI AL MAGAZZINO"\\ 5. Il sistema notifica il dipendente dell'avvenuta aggiunta dei prodotti..\end{tabular}
+                              \\ \hline
+
+
+Casi straordinari & 5. Nel caso in cui l'ID del videogioco non esista o e/o non è stato riempito il campo della quantità, il sistema notifica l'errore al dipendente
+\\ \hline
+\end{tabular}\caption{Aggiunta di prodotti in magazzino - MOCKUP SOTTO}
+
+\end{table}
+
+
+\bigskip
+
+
+\begin{table}[!htbp] 
+\begin{tabular}{l p{12cm}} 
+
+\hline
+UC-5          & Request Product                                                                                                                                                                                                                                                                                                                                              \\ \hline
+Descrizione       & Il dipendente richiede l'arrivo di un videogioco in una determinata quantità                                                                                                                                                                                                                                                   \\ \hline
+Livello           & User goal                                                                                                                                                                                                                                                                                                                                                         \\ \hline
+Attore principale &  Employee                                                                                                                                                                                                                                                                                                                                                        \\ \hline
+Azioni            &   
+
+
+      \begin{tabular}[c]{@{}l@{}}1. Il dipendente clicca "Richiedi" dal menù a tendina della sua interfaccia.\\ 2. Il sistema mostra due caselle di testo e due pulsanti.\\ 3. Il dipendente inserisce l'ID o il nome del videogioco da richiedere nella prima \\casella e la quantità nella seconda.\\ 4. Il dipendente preme il pulsante "RICHIEDI PER GAMEID" se ha inserito l'ID\\ del videogioco, altrimenti preme il pulsante "RICHIEDI PER NOME" se ha \\ inserito il nome.\\ 5. Il sistema notifica il dipendente dell'avvenuta richiesta.\end{tabular}
+                              \\ \hline
+
+
+Casi straordinari & 5. Nel caso in cui l'ID o il nome del videogioco non esista o e/o non è stato riempito il campo della quantità, il sistema notifica l'errore al dipendente
+\\ \hline
+\end{tabular}\caption{Richiesta di arrivo di un videogioco}
+
+\end{table}
+
+\bigskip
+\bigskip
+
+\begin{table}[!htbp] 
+\begin{tabular}{l p{12cm}} 
+
+\hline
+UC-6          & Notify Customer                                                                                                                                                                                                                                                                                                                                             \\ \hline
+Descrizione       & Se un dipendente registra l'arrivo di un videogioco e quest'ultimo era prenotato da uno o più clienti, il sistema si occuperà di riservare il prodotto a loro e notificarli.                                                                                                                                                                                                                                                  \\ \hline
+Livello           & Function                                                                                                                                                                                                                                                                                                                                                        \\ \hline
+Attore principale &  Employee                                                                                                                                                                                                                                                                                                                                                        \\ \hline
+Azioni            &   1. Il sistema notifica un cliente tramite la sua email dell'arrivo del gioco da lui prenotato.
+                              \\ \hline
+
+
+Condizioni preliminari & Il dipendente deve registrare l'arrivo di un videogioco prenotato.
+\\ \hline
+\end{tabular}\caption{Notifica di un cliente per email}
+
+\end{table}
+
+\newpage
+\subsubsection{Casi d'uso principali dell'amministratore}
+
+\begin{table}[!htbp] 
+\begin{tabular}{l p{12cm}} 
+
+\hline
+UC-7          & Create Detail                                                                                                                                                                                                                                                                                                                                             \\ \hline
+Descrizione       & L'amministratore inserisce nel database una nuova istanza nella tabella Detail, creando di fatto un nuovo videogioco nell'archivio.                                                                                                                                                                                                                                                 \\ \hline
+Livello           & User goal                                                                                                                                                                                                                                                                                                                                                        \\ \hline
+Attore principale &  Superuser                                                                                                                                                                                                                                                                                                                                                        \\ \hline
+Azioni            &   
+      \begin{tabular}[c]{@{}l@{}}1. L'amministratore clicca "Aggiungi gioco" dal menù a tendina della sua interfaccia.\\ 2. Il sistema mostra tre caselle di testo e un pulsante.\\ 3. L'amministratore inserisce il nome del videogioco, la console e il prezzo. \\ 4. L'amministratore preme il pulsante "AGGIUNGI AL DATABASE" \\ 5. Il sistema notifica l'amministratore dell'avvenuta aggiunta.\end{tabular}
+                              \\ \hline
+
+
+Casi straordinari & 5. Se uno dei campi viene lasciato vuoto, il sistema notifica l'amministratore di un errore.
+\\ \hline
+\end{tabular}\caption{Aggiunta di un videogioco al database - MOCKUP SOTTO}
+
+\end{table}
+
+
+\newpage
+\subsection{Mockups}
+Ecco alcuni Mockups che sono veri e propri screenshot della GUI realizzata a questo proposito.
+\subsubsection{Reserve Product}
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 0.7 \textwidth]{mockup1.png}
+    \caption{Screenshot di Reserve Product presente nella GUI cliente }
+    \label{fig:enter-label}
+\end{figure}
+\subsubsection{Add To Storage}
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 0.7 \textwidth]{mockup2.png}
+    \caption{Screenshot di Add To Storage presente nella GUI dipendente}
+    \label{fig:enter-label}
+\end{figure}
+\newpage
+\subsubsection{Request Product}
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 0.7 \textwidth]{mockup3.png}
+    \caption{Screenshot di Request Product presente nella GUI dipendente}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsubsection{Create Detail}
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 0.7 \textwidth]{mockup4.png}
+    \caption{Screenshot di Create Detail presente nella GUI amministratore}
+    \label{fig:enter-label}
+\end{figure}
+\newpage
+\subsection{Class Diagram}
+Di seguito (Figura 2), è riportato il diagramma delle classi del software e come queste sono legate e interagiscono tra loro.
+
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 1 \textwidth]{UML.png}
+    \caption{Diagramma UML}
+    \label{fig:enter-label}
+\end{figure}
+
+I package contenuti all'interno del software sono i seguenti:
+\begin{itemize}
+    \item domainModel: rappresenta il modello dei dati. Contiene tutte le classi tramite le quali sono stati rappresentati gli oggetti nel software. Qua sono definiti gli attributi di tutti i tipi presenti.
+    \item businessLogic: rappresenta la logica di controllo del sistema. Contiene le classi che si occupano di modificare i dati, comunicando esclusivamente con dei servizi per poter accedere al database senza farlo direttamente. In questo package sono presenti, dunque, tutti i controller per i modelli mappati nel Database.
+    \item dao: contiene tutte le classi necessarie all'interazione con il database.
+    \item GUI: contiene tutte le classi che implementano e mostrano le interfacce di login e dei tre diversi Use Case.
+    \item mailManager: contiene tutte le classi che servono a gestire l'invio automatico delle e-mail da parte del negozio.
+\end{itemize}
+
+\subsection{DAO Pattern}
+Per la comunicazione con il Database, è necessario che il client non possa interagire direttamente con lo stesso. Pertanto, abbiamo deciso di implementare il Design Pattern DAO. \par \medskip
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 1 \textwidth]{objectpattern.jpg}
+    \caption{Rappresentazione del Pattern DAO}
+    \label{fig:enter-label}
+\end{figure}
+DAO (Data Access Object) è un design pattern architetturale per mantenere la persistenza dei dati che sono registrati in un database. Con persistenza si intende la capacità di un qualsiasi dato di "sopravvivere" all'intera esecuzione di un programma, cioè di continuare a esistere ed essere coerente anche dopo la terminazione.
+Questo pattern serve inoltre a separare la logica di accesso ai dati dal resto dell'applicazione. E' progettato per isolare il codice che gestisce l'accesso e la manipolazione dei dati da quello che implementa la businessLogic del nostro software. La classe SoftwareDAO definisce e mette a disposizione metodi CRUD (Create, Read, Update, Delete) per i dati nel Database.
+\par \medskip
+Le classi che sfruttano SoftwareDAO sono:
+\begin{itemize}
+    \item Product
+    \item Detail
+    \item Customer 
+    \item Employee
+\end{itemize}
+Da notare che queste sono le 4 entità presenti nel Database. Inoltre, la classe Cashdesk non necessita dell'uso della classe SoftwareDAO per essere modificata, in quanto non è un modello registrato nel Database e non ha bisogno di persistenza.
+\newpage
+\subsection{Entity Relationship Diagram}
+Di seguito è riportato il diagramma ER del Database che abbiamo progettato. La cardinalità di entrambe le relazioni presenti sono (1;N).
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 1 \textwidth]{ER.png}
+    \caption{Diagramma ER}
+    \label{fig:enter-label}
+\end{figure}
+\par\medskip
+La relazione tra products e detail sta a significare il legame tra il prodotto (nonché un'istanza di videogioco) e il videogioco stesso.
+La relazione tra products e customers sta a significare che un prodotto può appartenere (cioè essere stato prenotato) da un cliente.
+
+\newpage
+\section{Implementazioni delle classi}
+Il progetto prevede la divisione in package Java: il modello dati nel package domainModel, la logica di controllo nel package businessLogic ed infine la gestione del Database nel package DAO
+\par
+Il codice sorgente è articolato nel seguente modo:
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 0.3 \textwidth]{implclass.png}
+    \caption{Suddivisione dei package all'interno dell'IDE}
+    \label{fig:enter-label}
+\end{figure}
+\par
+\subsection{domainModel}
+Il domainModel è il package che si occupa di definire un modello di composizione di classi su cui è possibile eseguire i casi d'uso espressi nello Use Case Diagram. Questo package si articola nelle seguenti classi:
+\subsubsection{Detail}
+Rappresenta un oggetto appartenente al "catalogo" di videogiochi potenzialmente disponibili in negozio. Gli attributi sono:
+\begin{itemize}
+    \item id: un identificativo univoco del videogioco (da ora in poi ci riferiremo a lui come GameID)
+    \item name: una stringa contenente il nome del videogioco
+    \item console: una stringa contenente la console su cui è stato pubblicato quel videogioco
+    \item price: contiene il prezzo attuale del videogioco
+    \item products: lista delle istanze (Product) di quel videogioco presenti in magazzino o che devono arrivare
+\end{itemize}
+
+\subsubsection{Product}
+Rappresenta una singola istanza di un videogioco che è presente nel catalogo. NB: un oggetto di tipo Product non esiste senza un riferimento a Detail, come nella realtà un prodotto deve essere "qualcosa" del catalogo.
+Gli attributi sono:
+\begin {itemize}
+    \item id: un identificativo univoco del prodotto
+    \item arrived: un booleano che specifica se il prodotto è arrivato o meno in negozio
+    \item detail: un riferimento (sempre non nullo) ad un Detail che specifica di che videogioco si tratta
+    \item customer: un riferimento ad un Customer che specifica di chi è l'eventuale prenotazione del prodotto stesso. Nel caso in cui il campo sia nullo/vuoto, il prodotto non è stato prenotato da nessuno ed è in vendita libera in negozio
+    
+\end{itemize}
+
+\subsubsection{Customer}
+Rappresenta un cliente registrato che può accedere alle funzionalità riservate a lui. Da notare che non solo un Customer può compiere acquisti: lo possono fare anche clienti non registrati, senza però sfruttare gli altri servizi. Gli attributi sono:
+\begin{itemize}
+    \item id: un identificativo univoco del cliente (da ora in poi ci riferiremo a lui come UserID)
+    \item name: una stringa contenente il nome del cliente
+    \item surname: una stringa contenente il cognome del cliente
+    \item email: una stringa contenente l'e-mail del cliente
+    \item points: un contatore di punti che vengono incrementati (sotto opportune condizioni) con gli acquisti del cliente
+    \item products: lista dei prodotti prenotati dal cliente, sia arrivati in negozio che non
+\end{itemize}
+
+\subsubsection{Employee}
+Rappresenta un dipendente assunto che lavora all'interno del negozio. Può compiere operazioni di gestione limitate all'interazione con il magazzino e alla registrazione di nuovi clienti. Gli attributi sono:
+\begin{itemize}
+    \item id: un identificativo univoco del dipendente
+     \item name: una stringa contenente il nome del dipendente
+    \item surname: una stringa contenente il cognome del dipendente
+    \item email: una stringa contenente l'e-mail del dipendente
+    \item salary: contiene lo stipendio attuale del dipendente
+\end{itemize}
+
+\subsubsection{Cashdesk}
+Rappresenta in maniera astratta il registratore di cassa con cui il dipendente effettua pagamenti e resi all'interno del software. La classe si occupa inoltre di aggiungere punti al cliente, qualora fosse uno registrato. Gli attributi sono:
+\begin{itemize}
+    \item productList: la lista temporanea dei prodotti finora scannerizzati
+    \item customer: un riferimento ad un Customer che, pagando, riceverà i punti. Se il campo è nullo, non verranno assegnati punti.
+    \item price: rappresenta il subtotale attuale.
+    \item productController
+    \item detailController
+    \item customerController
+\end{itemize}
+Gli ultimi 3 attributi non sono stati descritti perché saranno approfonditi successivamente.
+\par
+I metodi di Cashdesk sono elencati nel seguente snippet:
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 1 \textwidth]{class1.png}
+    \caption{Metodi di Cashdesk}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{businessLogic}
+businessLogic è il package che si occupa della gestione dei dati. Espone i metodi per creare, modificare e eliminare gli elementi del domainModel, mai accedendo direttamente al Database.
+\subsubsection{DetailController}
+La suddetta classe espone i metodi per creare e modificare gli oggetti di tipo Detail. I principali metodi implementati nella classe sono i seguenti:
+\begin{itemize}
+    \item createDetail: dati nome, console e prezzo, crea un nuovo Detail e salva il risultato nel Database
+    \item searchProduct: dato il nome di un Detail, restituisce nome, console e prezzo del Detail stesso
+    \item existDetail: dato un plausibile GameID, restituisce un booleano che indica se esiste un Detail con quell'ID
+    \item editPrice: dato il GameID e un nuovo prezzo, aggiorna il prezzo del Detail corrispondente e salva il risultato nel Database
+    
+\end{itemize}
+
+\subsubsection{ProductController}
+La suddetta classe espone i metodi per creare, eliminare e modificare gli oggetti di tipo Product. La classe, inoltre, contiene un riferimento a EmailController, in quanto la classe si occupa di inviare l'e-mail una volta arrivato un particolare Product.
+I principali metodi implementati nella classe sono i seguenti:
+\begin{itemize}
+    \item addProductRequest: dati GameID e una quantità, vengono create istanze di Product con il campo arrived inizializzato a "falso" e salva i risultati nel Database. Il metodo, come controllo, verifica se il GameID è effettivamente corrispondente ad un Detail
+    \item orderProduct: dati GameID e UserID, permette ad un dipendente di ordinare un gioco per conto di un cliente e salva il risultato nel Dataase. Il metodo, come controllo, verifica se il GameID è effettivamente corrispondente ad un Detail e se l'UserID è effettivamente corrispondente ad un Customer
+    \item arrivedProduct: dati GameID e una quantità, il sistema registra l'arrivo dei videogiochi in questione. Se una o più istanze di quel videogioco sono state prenotate da uno o più clienti, questi ultimi vengono notificati e i prodotti interessati non sono mai vendibili liberamente. I restanti vengono aggiunti regolarmente al magazzino, impostando a "true" l'attributo arrived. Se il prodotto non è stato ordinato né da un cliente, né dal negozio (eventualità di un rifornimento non chiesto), viene creata sul momento un'istanza di Product con quel GameID
+    \item searchProduct: dato GameID, restituisce nome, console, prezzo e quantità nel Database
+\end{itemize}
+
+\subsubsection{CustomerController}
+La suddetta classe espone i metodi per creare e modificare gli oggetti di tipo Customer. La classe, inoltre, contiene un attributo identificativo currentCustomer: utile per la GUI (lo vedremo in seguito).
+I principali metodi implementati nella classe sono i seguenti:
+\begin{itemize}
+    \item registerCustomer: dati nome, cognome e e-mail, registra un nuovo cliente inizializzando i punti a 0 e salva il risultato nel Database
+    \item getOrderByCustomer: dato UserID, restituisce tutti i videogiochi che il cliente ha prenotato, indicando se questi sono o non sono arrivati in negozio
+    \item displayAllCustomer: mostra l'elenco di tutti i customer, con le relative informazioni
+\end{itemize}
+
+\subsubsection{EmployeeController}
+La suddetta classe espone i metodi per creare e modificare gli oggetti di tipo Employee. La classe, inoltre, contiene un attributo identificativo currentEmployee: utile per la GUI (lo vedremo in seguito).
+I principali metodi implementati nella classe sono i seguenti:
+\begin{itemize}
+    \item registerEmployee: dati nome, cognome, e-mail e stipendio registra un nuovo dipendente e salva il risultato nel Database
+    \item editSalary: dato ID e un valore decimale, modifica lo stipendio del dipendente con quell'id
+    \item displayAllEmployee: mostra l'elenco di tutti i dipendenti, con le relative informazioni
+\end{itemize}
+
+\subsection{DAO}
+Questo package si occupa di gestire le connessioni e le operazioni sul database, attraverso il pattern DAO, tramite l'utilizzo di un database MySQL e l'utilizzo del framework Spring Boot JPA (Java Persistence API), di cui parleremo più tardi.
+\subsubsection{JPA Repositories}
+Queste repository sono fornite dall'API appena menzionata. Sono delle interfacce che vengono implementate dal momento in cui vengono specificati la classe su cui operare e il tipo dell'id (chiave primaria) degli oggetti di quella classe. 
+I principali metodi che vengono forniti dalle JPA Repository sono i seguenti:
+\begin{itemize}
+    \item save: Dato un oggetto, lo salva/lo aggiorna nel Database
+    \item delete: Dato un oggetto, lo cancella nel Database
+    \item findById: Dato l'ID, restituisce l'oggetto corrispondente (se esiste)
+    \item existsByID: Dato l'ID, restituisce un booleano che comunica se l'oggetto esiste all'interno del Database
+\end{itemize}
+Inoltre, le Repository permettono di scrivere query (di sola lettura) nel linguaggio SQL relative alle entità della classe a cui si riferiscono, tramite l'annotazione Spring Boot @Query
+\par\medskip
+Essendo 4 le entità rappresentate nel nostro database, le JPA Repository sono 4:
+\begin{itemize}
+    \item ProductRepository
+    \item DetailRepository
+    \item CustomerRepository
+    \item EmployeeRepository
+\end{itemize}
+\subsubsection{SoftwareDAO}
+Si interfaccia con il Database per la gestione delle varie tabelle, occupandosi di separare un "Oggetto Java" dall'entità corrispondente salvata nel Database.
+Dentro la classe sono contenute le 4 JPA Repository illustrate prima. Inoltre, SoftwareDAO si occupa di inizializzarle. Questa classe è quella che avvia il collegamento che mette in comunicazione programma e Database, attraverso il passaggio del paramentro ApplicationContext ottenuto una volta avviata l'applicazione.
+I principali metodi che vengono forniti da SoftwareDAO sono i seguenti:
+\begin{itemize}
+    \item save[Nome Classe]: salva, attraverso la corrispondente Repository, l'oggetto nel Database e notifica il successo dell'operazione
+    \item delete[Nome Classe]: cancella, attraverso la corrispondente Repository, l'oggetto nel Database e notifica il successo dell'operazione
+    \item getAll[Nome Classe]: fornisce una lista contenenti tutti gli oggetti attualmente esistenti di quella classe
+    \item get[Nome Classe]: restituisce un'occorrenza di un oggetto data la sua chiave primaria
+    \item getDetailByName: restituisce un'occorrenza di un oggetto Detail dato il suo nome.
+    \item exist[Nome Classe]: restituisce un booleano che, dato un ID, indica se l'oggetto è presente nel Database
+    \item getOrderedProductsByGameId: mostra la lista dei prodotti corrispondenti a un preciso videogioco, ordinati da uno o più clienti
+    \item getNonArrivedProductsByGameId: mostra la lista dei prodotti corrispondenti a un preciso videogioco, ma che non sono ancora arrivati in negozio
+\end{itemize}
+
+\subsection{mailManager}
+Questo package si occupa di incapsulare le 2 classi adibite al servizio di invio di email ai clienti registrati. Il servizio è usato quando un videogioco ordinato da un preciso utente, arriva in negozio. 
+\par\medskip
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 1 \textwidth]{ECOLOGMAIL.png}
+    \caption{Email inviata al cliente che ha prenotato il videogioco }
+    \label{fig:enter-label}
+\end{figure}
+\subsubsection{EmailSenderService}
+Questa classe è un @Service offerto dal framework Spring Boot Java Mail Sender. Si occupa di stabilire una connessione SMTP e inviare una email. Il metodo contenuto in essa è sendMail, che prende in ingresso 3 stringhe contenenti destinatario, oggetto e contenuto, inviando correttamente l'email e notificando il terminale del successo dell'operazione.
+\subsubsection{EmailController}
+Questa classe contiene un'occorrenza di EmailSenderService e si occupa di inizializzarla. Si tratta di un intermediario tra l'utente (chi usa il software) e Service. Controlla gli invii di email tramite due metodi:
+\begin{itemize}
+    \item notifyUser: compila un messaggio preimpostato con i dati del cliente e del videogioco arrivato. Il risultato sarà presente nel corpo del messaggio inviato
+    \item sendEmail: chiama il metodo sendMail del @Service passandogli i parametri di cui ha bisogno
+\end{itemize}
+\subsection{GUI}
+Questo package contiene tutte le classi riguardanti l'interfaccia grafica del programma. E' stata realizzata con Java Swing e con l'editor fornito dall'IDE. Sono presenti 4 frame, di cui 3 riguardanti i 3 diversi casi d'uso, e il primo per effettuare il login. Di seguito la schermata di login (GUIStartFrame):
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 0.7 \textwidth]{mockup5.png}
+    \caption{Schermata di login con la scelta tra 3 possibili attori}
+    \label{fig:enter-label}
+\end{figure}
+\par\medskip
+Le 4 interfacce grafiche sono rappresentate dalle seguenti 4 classi:
+\begin{itemize}
+    \item GUIStartFrame (raffigurata sopra)
+    \item EmployeeGUI
+    \item CustomerGUI
+    \item SuperuserGUI
+\end{itemize}
+
+\newpage
+\section{Test (JUnit)}
+I test sono stati realizzati con l'obiettivo di testare tutte le funzionalità dell'applicativo, ponendo particolare attenzione all'esecuzione corretta di tutti i metodi. Per realizzare i test è stato utilizzato JUnit. Di seguito si riporta l'insieme dei test effettuati, e l'esito positivo degli stessi.
+\par\medskip
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 0.5 \textwidth]{tests.png}
+    \caption{Test eseguiti con esito positivo}
+    \label{fig:enter-label}
+\end{figure}
+\par\medskip
+Di seguito, saranno mostrati e commentati gli snippet di codice di alcuni dei test eseguiti.
+\subsection{getProductsByGameIdTest}
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 1 \textwidth]{test1.png}
+    \caption{Snippet di getProductsByGameIdTest}
+    \label{fig:enter-label}
+\end{figure}
+\par\medskip
+Questo test serve a verficare la correttezza della funzione getProductsByGameId, la quale restituisce una lista di tutti i prodotti esistenti che sono appartenenti ad un particolare videogioco. Contando manualmente le occorrenze grazie alla tabella sul Database, in quel momento i Product con GameID uguale a 40 erano 2. E' stato nostro compito verificare se il metodo in questione restituisse una lista di dimensione 2.
+
+\subsection{existDetailByNameTest}
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 1 \textwidth]{test2.png}
+    \caption{Snippet di existDetailByNameTest}
+    \label{fig:enter-label}
+\end{figure}
+\par\medskip
+Questo test serve a verficare la correttezza della funzione existDetailByName, la quale restituisce un booleano sull'esistenza di un Detail dato un ID. E' stato nostro compito verificare se il metodo in questione restituisse vero o falso in modo corretto.
+
+
+\subsection{addProductTest}
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 1 \textwidth]{test3.png}
+    \caption{Snippet di addProductTest}
+    \label{fig:enter-label}
+\end{figure}
+\par\medskip
+Questo test serve a verficare la correttezza della funzione addProduct, la quale crea un prodotto e lo salva sul Database. E' stato nostro compito verificare se la lista complessiva dei prodotti aumentasse di 1 appena creato un prodotto. Nello specifico, prima di creare un nuovo Product, abbiamo contato manualmente i Product presenti nel Database (nel nostro caso 63). Successivamente, abbiamo creato un Product e verificato che la quantità fosse aumentata a 64.
+\par
+Da notare come questo test verifichi anche la correttezza della funzione findAll. 
+
+\newpage
+\section{Note sulla connessione al Database}
+In questo capitolo troveremo un approfondimento su come è stato realizzato il collegamento al Database.
+\subsection{DBMS: MySQL}
+Il DBMS utilizzato è MySQL, sviluppato da Oracle Corporation. Si tratta di un RDBMS (DBMS relazionale), per cui i dati sono organizzati in tabelle messe in relazione tra loro. In questo caso, le classi Java sono le entità (gli attributi sono le colonne) e gli oggetti sono le occorrenze. Abbiamo inoltre fatto uso di MySQL Workbench, un interfaccia grafica fornita in aggiunta al software che ci è stata di aiuto. 
+\medskip
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 1 \textwidth]{db1.png}
+    \caption{MySQL Workbench 8.0}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{Inizializzazione della connessione}
+Come detto in precedenza, abbiamo fatto uso del Framework Spring Boot, in particolare di uno dei suoi servizi chiamato Spring Data JPA, che permette di mappare facilmente classi Java all'interno di un Database, e di garantirne la loro persistenza. Questo servizio, inoltre, provvede alla connessione tra applicativo Java e Database. Lo fa attraverso il comando SpringApplication.run, che inoltre restituisce un oggetto di tipo ApplicationContext. Quest'ultimo è fondamentale perché serve a inizializzare qualsiasi classe che fa uso delle Repository che comunicano con il Database.
+\par\medskip
+Nel file application.properties, vengono scritti DBMS, indirizzo IP, porta e credenziali di accesso al Database.
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 0.8 \textwidth]{db3.png}
+    \caption{Snippet di application.properties, nella parte che riguarda il Database}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{Mappatura delle classi Java nel Database}
+Spring Data JPA mette a disposizione delle annotazioni (nella forma "@Annotazione") che forniscono delle funzionalità per le classi che devono far parte del Database: nello specifico, le classi Product, Detail, Customer, Employee. Le annotazioni utilizzate sono:
+\begin {itemize}
+    \item @Entity: da posizionare prima della dichiarazione della classe. Specifica che questa classe diventerà un'entità (tabella) nel Database.
+    \item @Table: specifica che nome deve avere la tabella corrispondente (se si vuole con nome diverso dalla classe) e lo schema relazionale a cui fa riferimento
+    \item @Id: da posizionare prima dell'attributo che diventerà la chiave primaria, solitamente un Longint
+    \item @GeneratedValue: opzionale, indica che la chiave primaria è generata automaticamente. Specifica anche la strategia di generazione (nel nostro caso la strategia adottata è IDENTITY, ovvero le chiavi primarie vengono generate con valori contigui)
+    \item @ManyToOne / @OneToMany: indica che l'attributo in questione ha un vincolo di integrità referenziale con uno di un'altra tabella (indicata dopo l'annotazione @JoinColumn)
+\end {itemize}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 0.5 \textwidth]{db2.png}
+    \caption{Snippet della classe Product, mappata nel Database}
+    \label{fig:enter-label}
+\end{figure}
+La prima volta in cui viene inserita l'annotazione @Entity in una classe ed eseguito il programma, il DBMS procederà a effettuare automaticamente una query di creazione (CREATE TABLE) e inserirà come colonne tutti gli attributi.
+
+\newpage
+\subsection{Implementazione delle query}
+Spring Data JPA, inoltre, fornisce un'annotazione compatibile solamente con le interfacce che diventano JPA Repository (@Repository).
+Tramite queste interfacce, è possibile utilizzare i metodi CRUD, quali aggiunta, cancellazione e modifica di occorrenze. Spring Data JPA mette a disposizione queste funzioni senza il bisogno di riscriverle esplicitamente. Oltre a questo, all'interno della JPA Repository, è possibile scrivere query in linguaggio SQL, con l'uso dell'annotazione @Query e con la possibilità di avere parametri in ingresso e decidere il tipo di ritorno.\par
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 1 \textwidth]{db4.png}
+    \caption{Snippet di ProductRepository con le relative query}
+    \label{fig:enter-label}
+\end{figure}
+Da notare che i metodi contenuti all'interno delle JPA Repository rispettano la sintassi richiesta dalle interfacce: infatti è presente solo la dichiarazione dei metodi e non l'implementazione, come erroneamente si potrebbe pensare vedendo scritta la query SQL sopra il metodo. Java, infatti, non la esegue, bensì è il DBMS a riceverla, eseguirla e implementare di fatto il metodo. 
+
+\subsection{Rete privata: Hamachi}
+Per l'intera realizzazione a 4 mani del progetto, c'era la necessità di avere a disposizione il Database sincronizzato su entrambi i nostri computer. La soluzione più pratica è stata quella di creare una rete privata in cui sono presenti solo i computer che possono accedere al Database, e impostare su MySQL l'indirizzo IPv4 fornito all'host dopo la creazione della rete privata (porta 3306). L'applicazione usata è LogMeIn Hamachi. 
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width = 0.25 \textwidth]{db5.png}
+    \caption{Hamachi}
+    \label{fig:enter-label}
+\end{figure}
+
+
+\end{document}
